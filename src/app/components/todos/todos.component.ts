@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {TodoService} from '../../services/todo.service'
 
 import {Todo} from '../../models/Todos'
+import { TODOS } from 'src/app/mock-todos';
 
 
 @Component({
@@ -10,7 +11,7 @@ import {Todo} from '../../models/Todos'
   styleUrls: ['./todos.component.css']
 })
 export class TodosComponent implements OnInit {
- todos: Todo[];
+ todos: Todo[]= TODOS;
 
   constructor(private todoService:TodoService) { }
 
