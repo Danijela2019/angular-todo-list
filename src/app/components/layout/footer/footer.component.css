@@ -1,0 +1,19 @@
+.footer {
+  background-color: black;
+  color: whitesmoke;
+  padding: 0.2rem;
+  margin: 0;
+}
+.copyright {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: whitesmoke;
+  text-align: center;
+  background-color: black;
+  padding: 0.2rem;
+}
+.copyright:before {
+  content: "\00a9";
+}
