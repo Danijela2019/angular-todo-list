@@ -1,3 +1,14 @@
 .about-container {
   text-align: center;
 }
+
+.image {
+  width: 500px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+@media (max-width: 767px) {
+  .image {
+    width: 80%;
+  }
+}
