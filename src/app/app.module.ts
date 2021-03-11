@@ -11,6 +11,7 @@ import { HeaderComponent } from './components/layout/header/header.component';
 import { AddTodoComponent } from './components/add-todo/add-todo.component';
 import { AboutComponent } from './components/pages/about/about.component';
 import { FooterComponent } from './components/layout/footer/footer.component';
+import { WelcomeComponent } from './components/pages/welcome/welcome.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FooterComponent } from './components/layout/footer/footer.component';
     HeaderComponent,
     AddTodoComponent,
     AboutComponent,
-    FooterComponent
+    FooterComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
