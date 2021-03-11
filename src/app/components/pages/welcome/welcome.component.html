@@ -1,0 +1,13 @@
+<div class="background">
+  <h1 class="headline">Welcome to the Todo list</h1>
+  <p class="paragraph">Please write your name</p>
+  <form class="form" (input)="onInput($event)">
+    <input type="text" placeholder="Your name..." required />
+    <input
+      type="button"
+      value="Submit"
+      class="btn"
+      (click)="onRedirectHome()"
+    />
+  </form>
+</div>

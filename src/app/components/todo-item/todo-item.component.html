@@ -11,7 +11,8 @@
       {{ todo.title }}
     </label>
     <button
-      [ngClass]="{ done: todo.completed, del: !todo.completed }"
+      class="done"
+      [ngStyle]="{ display: isDone() }"
       (click)="onDelete(todo)"
     >
       X

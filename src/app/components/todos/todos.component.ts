@@ -1,22 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 
 import {TodoService} from '../../services/todo.service';
 import {Todo} from '../../models/Todos';
+import { WelcomeService } from 'src/app/services/welcome.service';
 
 
 @Component({
   selector: 'app-todos',
   templateUrl: './todos.component.html',
-  styleUrls: ['./todos.component.css']
+  styles: [`.todo-item {
+            background-color: #e3e3e3;
+            }
+          .title {
+            margin:1rem;
+          }
+          @media (max-width: 767px){
+            .title {
+              font-size:1.5rem;
+            }
+          }`
+  ]
 })
 export class TodosComponent implements OnInit {
- todos: Todo[]= [];
+todos: Todo[]= [];
+ 
 
-  constructor(private todoService:TodoService) { }
+constructor(private todoService:TodoService, private readonly _welcomeService: WelcomeService) { }
 
   ngOnInit(): void {
-    //for fetching data asinchronosly
-    this.todoService.getTodos().subscribe(todos => this.todos = todos );
+
+  //for fetching data asinchronosly
+  this.todoService.getTodos().subscribe(todos => this.todos = todos );
    }
 
 
@@ -32,4 +46,10 @@ export class TodosComponent implements OnInit {
         this.todos.push(todo)
       })
     }
+    //getting the name from welcomepage
+    getName(): string {
+      return this._welcomeService.input;
+    }
 }
+
+
