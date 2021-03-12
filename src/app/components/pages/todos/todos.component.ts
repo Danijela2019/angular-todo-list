@@ -1,7 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 
-import {TodoService} from '../../services/todo.service';
-import {Todo} from '../../models/Todos';
+import {TodoService} from '../../../services/todo.service';
+import {Todo} from '../../../models/Todos';
 import { WelcomeService } from 'src/app/services/welcome.service';
 
 

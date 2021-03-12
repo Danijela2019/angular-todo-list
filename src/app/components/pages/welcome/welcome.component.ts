@@ -21,7 +21,7 @@ export class WelcomeComponent implements OnInit {
     this.router.navigate(navigationDetails);
   }
   
-  public onInput(formEvent): void {
+  public onInput(formEvent: { target: { value: string; }; }): void {
     this.input = formEvent.target.value;
     this._welcomeService.input = formEvent.target.value;
  }
