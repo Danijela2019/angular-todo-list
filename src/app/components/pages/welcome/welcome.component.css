@@ -47,3 +47,9 @@
 .btn:hover {
   background: #3c3ebd;
 }
+
+@media (max-width: 767px) {
+  .form input[type="text"] {
+    padding: 15px;
+  }
+}
