@@ -12,7 +12,7 @@ This project was created as an exercise to get familiar with angular and some of
 -**mark a todo as done**  
 -**add a todo**  
 -**remove a todo**  
--**update a todo**
+
 
 ## How to use it
 
