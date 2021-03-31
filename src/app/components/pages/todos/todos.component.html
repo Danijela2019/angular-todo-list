@@ -1,5 +1,6 @@
-<h1 class="title">Welcome {{ getName() | uppercase }}, your todos:</h1>
+<h1 class="title">Welcome {{ getName() }}, your todos:</h1>
 <app-add-todo (addTodo)="addTodo($event)"></app-add-todo>
+
 <ul class="list">
   <app-todo-item
     *ngFor="let todo of todos"

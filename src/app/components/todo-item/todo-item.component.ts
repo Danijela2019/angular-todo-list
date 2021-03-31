@@ -12,23 +12,19 @@ export class TodoItemComponent implements OnInit {
   @Input() todo: Todo;
   @Output() deleteTodo: EventEmitter<Todo> = new EventEmitter();
 
+  constructor(private todoService:TodoService) {}
 
-  constructor(private todoService:TodoService) {
-   }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   isDone(){
     return this.todo.completed ? 'block': 'none';
   }
-  onToggle(todo :Todo){
-    //Toggle in the UI
-    todo.completed = !todo.completed;
-    // Toggle in the server
-    this.todoService.toggleCompleted(todo).subscribe(todo => console.log(todo,'returned'));
-  }
 
+  onToggle(todo:Todo) {
+      const data = {completed: !this.todo.completed};
+      this.todoService.toggleCompleted(todo,data)
+    }
+    
   onDelete(todo:Todo){
     this.deleteTodo.emit(todo)
   } 
