@@ -3,7 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  firebaseConfig : {
+  apiKey: "AIzaSyAvKqUkNfZ_CewwdeF6f3t5TXDwnfDT9CA",
+  authDomain: "to-do-angular-e032d.firebaseapp.com",
+  projectId: "to-do-angular-e032d",
+  storageBucket: "to-do-angular-e032d.appspot.com",
+  messagingSenderId: "943780488482",
+  appId: "1:943780488482:web:66b3d19fb73c8c6540317b",
+  measurementId: "G-ZFWEKRHBZX"
+  } 
 };
 
 /*

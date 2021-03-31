@@ -25,31 +25,31 @@ export class TodosComponent implements OnInit {
 todos: Todo[]= [];
  
 
-constructor(private todoService:TodoService, private readonly _welcomeService: WelcomeService) { }
+constructor(private todoService:TodoService, private readonly welcomeService: WelcomeService) { }
 
   ngOnInit(): void {
-
-  //for fetching data asinchronosly
-  this.todoService.getTodos().subscribe(todos => this.todos = todos );
-   }
-
-
-   deleteTodo(todo:Todo){
-      //delete form UI
-      this.todos = this.todos.filter(item => item.id !== todo.id)
-      // delete from the server
-      this.todoService.deleteTodo(todo).subscribe();
-    } 
-    
-    addTodo(todo:Todo){
-      this.todoService.addTodo(todo).subscribe(todo=>{
-        this.todos.push(todo)
+    this.todoService.getAllTodos().subscribe(data => {
+      this.todos = data.map((e:any) => {
+        return {
+          id: e.payload.doc.id,
+          ...e.payload.doc.data()
+        } as Todo;
       })
-    }
-    //getting the name from welcomepage
-    getName(): string {
-      return this._welcomeService.input;
-    }
+    });
+  }
+
+  deleteTodo(todo:Todo){
+    this.todos = this.todos.filter(item => item.id !== todo.id)
+    this.todoService.deleteTodo(todo);
+  } 
+    
+  addTodo(todo:Todo){
+    this.todoService.addTodo(todo);
+  }
+
+  getName(): string {
+    return this.welcomeService.input;
+  }
 }
 
 

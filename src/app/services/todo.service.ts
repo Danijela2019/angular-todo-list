@@ -1,45 +1,32 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders} from '@angular/common/http'
-import { Todo } from '../models/Todos';
-import { Observable , of } from 'rxjs';
-import {TODOS} from '../mock-todos'
+import { AngularFirestore } from '@angular/fire/firestore';
 
-const  httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
+import { Todo } from '../models/Todos';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TodoService {
-  todosLimit:string = '?_limit=5';
-  todosUrl: string = 'https://jsonplaceholder.typicode.com/todos';
+  
 
-  constructor(private http:HttpClient) { }
-//get Todos using jsonplaceholder API https://jsonplaceholder.typicode.com/guide/
-/*getTodos() : Observable<Todo[]> {
-   return this.http.get<Todo[]>(this.todosUrl.concat(this.todosLimit))
-  }*/
+  constructor(private db: AngularFirestore) {
+   }
 
-//get Todos localy asychronosly from  a mock data file
-getTodos(): Observable<Todo[]> {
-  const todos = of(TODOS);
-  return todos;
-}
-
-  //toggle completed Todos
-  toggleCompleted(todo:Todo): Observable<any> {
-    const url = `${this.todosUrl}/${todo.id}`;
-    return this.http.put(url, todo, httpOptions);
+  getAllTodos() {
+    return this.db.collection('todos').snapshotChanges();
   }
 
-  // delete Todos
-  deleteTodo(todo:Todo):Observable<Todo> {
-    const url = `${this.todosUrl}/${todo.id}`
-    return this.http.delete<Todo>(url, httpOptions)
+  addTodo(todo: Todo): any {
+    return this.db.collection('todos').add({...todo});
+  }
+
+  toggleCompleted(todo:Todo,data:any) {
+    this.db.doc('todos/' + todo.id).update(data);
   } 
-  // add todos
-  addTodo(todo:Todo):Observable<Todo> {
-    return this.http.post<Todo>(this.todosUrl,todo, httpOptions)
+
+  deleteTodo(todo: Todo){
+    const todoId= todo.id
+    this.db.doc('todos/' + todoId).delete();
   }
+
 }
