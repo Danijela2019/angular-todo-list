@@ -16,5 +16,5 @@
   padding: 0.2rem;
 }
 .copyright:before {
-  content: "\00a9";
+  content: '\00a9';
 }
