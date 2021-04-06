@@ -16,6 +16,8 @@ import { AddTodoComponent } from './components/add-todo/add-todo.component';
 import { AboutComponent } from './components/pages/about/about.component';
 import { FooterComponent } from './components/layout/footer/footer.component';
 import { WelcomeComponent } from './components/pages/welcome/welcome.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { WelcomeComponent } from './components/pages/welcome/welcome.component';
     AddTodoComponent,
     AboutComponent,
     FooterComponent,
-    WelcomeComponent
+    WelcomeComponent,
+  
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,9 @@ import { WelcomeComponent } from './components/pages/welcome/welcome.component';
     HttpClientModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule, 
+    AngularFirestoreModule,
+    BrowserAnimationsModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
