@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import {FormsModule} from '@angular/forms'
+import { FormsModule } from '@angular/forms';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -17,7 +17,7 @@ import { AboutComponent } from './components/pages/about/about.component';
 import { FooterComponent } from './components/layout/footer/footer.component';
 import { WelcomeComponent } from './components/pages/welcome/welcome.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -29,7 +29,6 @@ import {MatIconModule} from '@angular/material/icon';
     AboutComponent,
     FooterComponent,
     WelcomeComponent,
-  
   ],
   imports: [
     BrowserModule,
@@ -39,9 +38,9 @@ import {MatIconModule} from '@angular/material/icon';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     BrowserAnimationsModule,
-    MatIconModule
+    MatIconModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
