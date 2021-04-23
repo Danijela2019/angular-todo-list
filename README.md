@@ -17,6 +17,6 @@ This project was created as an exercise to get familiar with angular and some of
 ## How to use it
 
 -**clone the repo https://github.com/Danijela2019/angular-todo-list.git**  
--**instal all dependencies by runnig 'npm install'in the terminal**  
+-**install all dependencies by runnig 'npm install'in the terminal**  
 -**start the application by typing 'ng serve' in the terminal**  
 -**view the app in your browser at http://localhost:4200**
